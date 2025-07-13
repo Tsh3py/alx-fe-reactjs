@@ -1,25 +1,37 @@
 // src/App.jsx
-import { useState } from 'react' // Keep if you plan to use state later, otherwise can remove
-import './App.css' // Keep if you have global app styling
+import { useState } from 'react'
+import './App.css'
 
-// NEW: Import the specific components
+// Import the specific components
 import Header from './components/Header';
 import MainContent from './components/MainContent';
 import Footer from './components/Footer';
+// NEW: Import the UserProfile component
+import UserProfile from './components/UserProfile'; 
 
 function App() {
-  // You can remove useState and the count button if not needed for this task's output
-  const [count, setCount] = useState(0) // Keeping for now, but not used in the final render
+  const [count, setCount] = useState(0) // Keeping useState, though not directly used for this task's output
 
   return (
     <>
-      {/* Render the components in the specified order */}
+      {/* Render the Header component */}
       <Header />
+      
+      {/* NEW: Render the UserProfile component with props */}
+      <UserProfile 
+        name="Alice" 
+        age={25} 
+        bio="Loves hiking and photography" 
+      />
+
+      {/* Render the MainContent component */}
       <MainContent />
+      
+      {/* Render the Footer component */}
       <Footer />
 
-      {/* You can remove the original Vite + React starter content if it's not needed for the task
-          For this task, the instruction implies replacing the content that was there. */}
+      {/* You can keep or remove the original Vite + React starter content as per your preference.
+          For this task, the focus is on the new components. */}
       {/* <div>
         <a href="https://vitejs.dev" target="_blank">
           <img src={viteLogo} className="logo" alt="Vite logo" />
