@@ -2,7 +2,7 @@ import React from 'react';
 
 function Footer() {
   return (
-    
+    // Apply inline styles to the footer tag
     <footer style={{ 
         backgroundColor: '#333', 
         color: 'white', 
@@ -16,3 +16,4 @@ function Footer() {
 }
 
 export default Footer;
+
