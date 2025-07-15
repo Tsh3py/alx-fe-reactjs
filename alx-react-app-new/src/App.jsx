@@ -1,37 +1,39 @@
-// src/App.jsx
-import { useState } from 'react'
-import './App.css'
+import { useState } from 'react' // Keep useState if you're using it in App.jsx, otherwise can remove
+import './App.css' 
 
 // Import the specific components
 import Header from './components/Header';
 import MainContent from './components/MainContent';
 import Footer from './components/Footer';
-// NEW: Import the UserProfile component
 import UserProfile from './components/UserProfile'; 
+// NEW: Import the Counter component
+import Counter from './components/Counter';
 
 function App() {
-  const [count, setCount] = useState(0) // Keeping useState, though not directly used for this task's output
+  const [count, setCount] = useState(0) // This useState is from the original Vite template, not directly used for the task's Counter component output
 
   return (
     <>
       {/* Render the Header component */}
       <Header />
       
-      {/* NEW: Render the UserProfile component with props */}
+      {/* Render the UserProfile component with props */}
       <UserProfile 
         name="Alice" 
         age={25} 
         bio="Loves hiking and photography" 
       />
 
+      {/* NEW: Render the Counter component */}
+      <Counter />
+      
       {/* Render the MainContent component */}
       <MainContent />
       
       {/* Render the Footer component */}
       <Footer />
 
-      {/* You can keep or remove the original Vite + React starter content as per your preference.
-          For this task, the focus is on the new components. */}
+      {/* You can keep or remove the original Vite + React starter content as per your preference. */}
       {/* <div>
         <a href="https://vitejs.dev" target="_blank">
           <img src={viteLogo} className="logo" alt="Vite logo" />
