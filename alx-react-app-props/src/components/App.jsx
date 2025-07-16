@@ -3,7 +3,7 @@
         import UserContext from './UserContext'; 
 
         function App() {
-          const userData = { name: "Anne Dora", email: "anne.dora@example.com" };
+          const userData = { name: "Jane Doe", email: "Jane.Doe@example.com" };
 
           return (
             <UserContext.Provider value={userData}>
