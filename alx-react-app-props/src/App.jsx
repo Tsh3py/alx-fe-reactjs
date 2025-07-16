@@ -1,16 +1,12 @@
 import React from 'react';
-import ProfilePage from './ProfilePage';
-import UserContext from './UserContext'; // Import UserContext
+    import ProfilePage from './ProfilePage'; // Assuming ProfilePage is in the same directory
 
-function App() {
-  const userData = { name: "Tshepi Mohitshane", email: "tshepi.mohitshane@example.com" };
+    function App() {
+      const userData = { name: "Jane Doe", email: "jane.doe@example.com" };
 
-  return (
-    // Wrap ProfilePage with UserContext.Provider and pass userData as the value
-    <UserContext.Provider value={userData}>
-      <ProfilePage /> {/* ProfilePage no longer needs userData prop */}
-    </UserContext.Provider>
-  );
-}
+      return <ProfilePage userData={userData} />;
+    }
 
-export default App;
+    export default App;
+    
+        
