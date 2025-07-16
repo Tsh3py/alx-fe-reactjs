@@ -1,8 +1,9 @@
-import React from 'react';
-import UserInfo from './UserInfo';
+  import React from 'react';
+        import UserInfo from './UserInfo'; 
 
-function ProfilePage() { // Removed { userData } from props
-  return <UserInfo />; // UserInfo no longer needs userData prop
-}
+        function ProfilePage() { 
+          return <UserInfo />; 
+        }
 
-export default ProfilePage;
+        export default ProfilePage;
+        

@@ -1,10 +1,9 @@
  import React from 'react';
-import UserDetails from './UserDetails';
+        import UserDetails from './UserDetails';
 
-function UserInfo() { // Removed { userData } from props
-  return <UserDetails />; // UserDetails no longer needs userData prop
-}
+        function UserInfo() { 
+          return <UserDetails />; 
+        }
 
-export default UserInfo;
-
+        export default UserInfo;
     
