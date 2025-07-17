@@ -1,18 +1,20 @@
-// src/components/UserProfile.jsx
 import React from 'react';
+import UserContext from './UserContext';
 
-// Define a functional component UserProfile that takes props
-const UserProfile = (props) => {
-  return (
-    <div>
-      {/* Display user's name */}
-      <h2>{props.name}</h2>
-      {/* Display user's age */}
-      <p>Age: {props.age}</p>
-      {/* Display user's bio */}
-      <p>Bio: {props.bio}</p>
-    </div>
-  );
-};
+class UserProfile extends React.Component {
+  render() {
+    return (
+      <UserContext.Consumer>
+        {userData => (
+          <div>
+            <h2>User Profile</h2>
+            <p>Name: {userData.name}</p>
+            <p>Email: {userData.email}</p>
+          </div>
+        )}
+      </UserContext.Consumer>
+    );
+  }
+}
 
 export default UserProfile;
