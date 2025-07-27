@@ -1,42 +1,54 @@
 import { create } from 'zustand';
 
-const useRecipeStore = create((set, get) => ({ // Added 'get' parameter to access current state
+const useRecipeStore = create((set, get) => ({
   recipes: [],
-  searchTerm: '', // New state for the search term
-  filteredRecipes: [], // New state for filtered recipes
+  searchTerm: '',
+  filteredRecipes: [],
 
   // Action to add a new recipe
   addRecipe: (newRecipe) => {
-    set(state => ({ 
-      recipes: [...state.recipes, newRecipe] 
+    set(state => ({
+      recipes: [...state.recipes, newRecipe]
     }));
-    // Ensure filterRecipes is called after state update.
-    // Using setTimeout to ensure state update is fully processed before filtering,
-    // though get().filterRecipes() should generally work directly.
-    // For strict checkers, sometimes a slight delay helps.
-    setTimeout(() => get().filterRecipes(), 0); 
+    setTimeout(() => get().filterRecipes(), 0);
+  },
+
+  // Action to update an existing recipe
+  updateRecipe: (updatedRecipe) => {
+    set(state => ({
+      recipes: state.recipes.map(recipe =>
+        recipe.id === updatedRecipe.id ? updatedRecipe : recipe
+      )
+    }));
+    setTimeout(() => get().filterRecipes(), 0);
+  },
+
+  // Action to delete a recipe by its ID
+  deleteRecipe: (recipeId) => {
+    set(state => ({
+      recipes: state.recipes.filter(recipe => recipe.id !== recipeId)
+    }));
+    setTimeout(() => get().filterRecipes(), 0);
   },
   
-  // Action to set the initial list of recipes (if loading from an API, etc.)
+  // Action to set the initial list of recipes
   setRecipes: (recipes) => {
     set({ recipes });
-    // Ensure filterRecipes is called after state update.
     setTimeout(() => get().filterRecipes(), 0);
   },
 
   // Action to update the search term
   setSearchTerm: (term) => {
     set({ searchTerm: term });
-    // Ensure filterRecipes is called whenever the search term changes.
     setTimeout(() => get().filterRecipes(), 0);
   },
 
   // Action to filter recipes based on the current search term
   filterRecipes: () => {
-    const state = get(); // Get the current state
+    const state = get();
     const filtered = state.recipes.filter(recipe =>
       recipe.title.toLowerCase().includes(state.searchTerm.toLowerCase()) ||
-      recipe.description.toLowerCase().includes(state.searchTerm.toLowerCase()) // Also search in description
+      recipe.description.toLowerCase().includes(state.searchTerm.toLowerCase())
     );
     set({ filteredRecipes: filtered });
   }
