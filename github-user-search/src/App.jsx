@@ -1,3 +1,6 @@
+// This is a test comment to force a new commit.
+import React from 'react';
+
 import './App.css'
 
 function App() {
