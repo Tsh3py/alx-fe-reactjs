@@ -5,29 +5,30 @@ import UserCard from './UserCard'; // Assuming you have a UserCard component
 const Search = () => {
   // State for the user's search query
   const [query, setQuery] = useState('');
-  // State to hold the fetched user data
-  const [user, setUser] = useState(null);
+  // State to hold the fetched user data (now an array)
+  const [users, setUsers] = useState([]);
   // State for handling loading status
   const [isLoading, setIsLoading] = useState(false);
   // State for handling potential errors
   const [error, setError] = useState(null);
 
   /**
-   * Fetches user data from the GitHub API.
+   * Fetches user data from the GitHub search API.
    * @param {string} username The GitHub username to search for.
    */
   const fetchUserData = async (username) => {
     setIsLoading(true);
     setError(null);
-    setUser(null);
+    setUsers([]);
 
     // Exponential backoff retry logic for API calls
     for (let i = 0; i < 3; i++) {
       try {
-        const response = await fetch(`https://api.github.com/users/${username}`);
+        const response = await fetch(`https://api.github.com/search/users?q=${username}`);
         if (response.ok) {
           const data = await response.json();
-          setUser(data);
+          // The API returns an object with a 'items' array
+          setUsers(data.items);
           setIsLoading(false);
           return; // Exit the loop on success
         } else if (response.status === 404) {
@@ -97,8 +98,12 @@ const Search = () => {
             {error}
           </div>
         )}
-        {user && !isLoading && !error && (
-          <UserCard user={user} />
+        {users.length > 0 && !isLoading && !error && (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            {users.map(user => (
+              <UserCard key={user.id} user={user} />
+            ))}
+          </div>
         )}
       </div>
     </div>
@@ -106,3 +111,4 @@ const Search = () => {
 };
 
 export default Search;
+ 
