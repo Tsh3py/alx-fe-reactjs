@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import UserCard from './UserCard'; // Import the new UserCard component
+import UserCard from './UserCard'; // Import the UserCard component
 
 // Main Search component
 const Search = () => {
@@ -107,7 +107,17 @@ const Search = () => {
         {users.length > 0 && !isLoading && !error && (
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
             {users.map(user => (
-              <UserCard key={user.id} user={user} />
+              <div key={user.id} className="relative">
+                <UserCard user={user} />
+                <a 
+                  href={user.html_url} 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="absolute bottom-4 left-4 bg-gray-800 text-white text-xs px-2 py-1 rounded-full opacity-0 hover:opacity-100 transition-opacity duration-300"
+                >
+                  {user.html_url}
+                </a>
+              </div>
             ))}
           </div>
         )}
