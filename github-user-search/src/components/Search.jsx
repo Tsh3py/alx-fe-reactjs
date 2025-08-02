@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import UserCard from './UserCard'; // Assuming you have a UserCard component
+import UserCard from './UserCard'; // Import the new UserCard component
 
 // Main Search component
 const Search = () => {
@@ -28,7 +28,13 @@ const Search = () => {
         if (response.ok) {
           const data = await response.json();
           // The API returns an object with a 'items' array
-          setUsers(data.items);
+          // For the "location" property, we will need to fetch it for each user
+          const detailedUsers = await Promise.all(data.items.map(async (user) => {
+              const userResponse = await fetch(user.url);
+              const userData = await userResponse.json();
+              return userData;
+          }));
+          setUsers(detailedUsers);
           setIsLoading(false);
           return; // Exit the loop on success
         } else if (response.status === 404) {
@@ -87,7 +93,7 @@ const Search = () => {
       </div>
 
       {/* Results Display */}
-      <div className="mt-8 w-full max-w-xl">
+      <div className="mt-8 w-full max-w-4xl">
         {isLoading && (
           <div className="p-8 text-center text-2xl font-semibold text-gray-600 dark:text-gray-400">
             Loading...
@@ -99,7 +105,7 @@ const Search = () => {
           </div>
         )}
         {users.length > 0 && !isLoading && !error && (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
             {users.map(user => (
               <UserCard key={user.id} user={user} />
             ))}
@@ -111,4 +117,3 @@ const Search = () => {
 };
 
 export default Search;
- 
