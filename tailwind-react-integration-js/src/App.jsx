@@ -1,4 +1,4 @@
-// src/App.jsx
+
 import { useState } from 'react' // Keep if you plan to use state later, otherwise can remove
 import './App.css' // Keep if you have global app styling
 
