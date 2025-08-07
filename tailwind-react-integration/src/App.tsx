@@ -1,15 +1,22 @@
+// src/App.tsx
 import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
+// NEW: Import the UserProfile component
+import UserProfile from './components/UserProfile'; 
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [count, setCount] = useState(0) // Keeping useState, though not directly used for this task's output
 
   return (
     <>
+      {/* NEW: Render the UserProfile component */}
+      <UserProfile /> 
+
+      {/* You can keep or remove the original Vite + React starter content as per your preference. */}
       <div>
-        <a href="https://vite.dev" target="_blank">
+        <a href="https://vitets.dev" target="_blank">
           <img src={viteLogo} className="logo" alt="Vite logo" />
         </a>
         <a href="https://react.dev" target="_blank">
@@ -22,7 +29,7 @@ function App() {
           count is {count}
         </button>
         <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
+          Edit <code>src/App.jsx</code> and save to test HMR
         </p>
       </div>
       <p className="read-the-docs">
