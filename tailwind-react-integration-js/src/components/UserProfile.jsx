@@ -1,6 +1,5 @@
-// src/components/UserProfile.jsx
-import React from 'react';
-
+import React from 'react'; // React is implicitly imported in newer React versions, but good practice to include
+import './UserProfile.css'; // Assuming you have a CSS file for UserProfile styles
 function UserProfile() {
   return (
     <div className="bg-gray-100 p-8 max-w-sm mx-auto my-20 rounded-lg shadow-lg text-center">
