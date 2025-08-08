@@ -1,28 +1,27 @@
 
-import { useState } from 'react' // Keep if you plan to use state later, otherwise can remove
-import './App.css' // Keep if you have global app styling
-
-// NEW: Import the UserProfile component
+// src/App.jsx
+import { useState } from 'react'
+import reactLogo from './assets/react.svg'
+import viteLogo from '/vite.svg'
+import './App.css'
+// NEW: Import the UserProfile component with the correct path
 import UserProfile from './components/UserProfile'; 
 
 function App() {
-  // Keeping useState for now as it's part of the default Vite template,
-  // but it's not directly used for the UserProfile component's display.
-  const [count, setCount] = useState(0) 
+  const [count, setCount] = useState(0) // Keeping useState, though not directly used for this task's output
 
   return (
     <>
-      {/* Render the styled UserProfile component */}
+      {/* NEW: Render the UserProfile component */}
       <UserProfile /> 
 
-      {/* You can keep or remove the original Vite + React starter content as per your preference.
-          For this task, the instruction implies replacing the content that was there. */}
+      {/* You can keep or remove the original Vite + React starter content as per your preference. */}
       <div>
         <a href="https://vitejs.dev" target="_blank">
-          <img src="/vite.svg" className="logo" alt="Vite logo" />
+          <img src={viteLogo} className="logo" alt="Vite logo" />
         </a>
         <a href="https://react.dev" target="_blank">
-          <img src="./assets/react.svg" className="logo react" alt="React logo" />
+          <img src={reactLogo} className="logo react" alt="React logo" />
         </a>
       </div>
       <h1>Vite + React</h1>
