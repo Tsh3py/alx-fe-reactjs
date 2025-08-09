@@ -1,33 +1,12 @@
-# Tailwind CSS React Integration Project
+# React + Vite
 
-This project is a simple React application set up with Vite, demonstrating the integration of Tailwind CSS.
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-## Setup and Installation
+Currently, two official plugins are available:
 
-1.  Clone this repository:
-    ```bash
-    git clone <your-repo-url>
-    cd tailwind-react-integration
-    ```
-2.  Install dependencies:
-    ```bash
-    npm install
-    ```
-3.  Run the development server:
-    ```bash
-    npm run dev
-    ```
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## Technologies Used
+## Expanding the ESLint configuration
 
-* React
-* Vite
-* Tailwind CSS
-
-## Project Structure
-
-* `src/`: Contains React components and main application logic.
-* `public/`: Static assets.
-* `vite.config.ts`: Vite configuration.
-* `tailwind.config.js`: Tailwind CSS configuration.
-* `src/index.css`: Main CSS file importing Tailwind directives.
+If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.

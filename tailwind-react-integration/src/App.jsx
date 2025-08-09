@@ -18,7 +18,7 @@ function App() {
       <h1 className="text-xl text-blue-800 my-4">John Doe</h1>
       
       {/* The paragraph styled with Tailwind CSS */}
-      <p className="text-gray-600 text-base">Developer at Example Co. Loves to write code and explore new technologies.</p>
+      <p className="text-gray-600 text-base">Developer at ALX. Loves to write code and explore new technologies.</p>
     </div>
   );
 }
