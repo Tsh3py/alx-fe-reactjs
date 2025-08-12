@@ -1,4 +1,4 @@
-// src/components/UserProfile.jsx
+// src/components/UserProfile .jsx
 import React from 'react';
 
 function UserProfile() {
@@ -9,8 +9,8 @@ function UserProfile() {
         alt="User" 
         className="rounded-full w-36 h-36 mx-auto mb-4" 
       />
-      <h1 className="text-xl text-blue-800 my-4">John Doe</h1>
-      <p className="text-gray-600 text-base">Developer at Example Co. Loves to write code and explore new technologies.</p>
+      <h1 className="text-xl text-blue-800 my-4">Jill Don</h1>
+      <p className="text-gray-600 text-base">Developer at ALX Co. Loves to write code and explore new technologies.</p>
     </div>
   );
 }
