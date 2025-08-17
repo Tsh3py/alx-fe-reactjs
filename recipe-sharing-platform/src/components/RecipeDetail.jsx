@@ -28,18 +28,22 @@ function RecipeDetail() {
       <div className="mb-6">
         <h2 className="text-xl font-semibold text-gray-800 mb-2">Ingredients</h2>
         <ul className="list-disc list-inside text-gray-600 space-y-1">
-          <li>Ingredient 1</li>
-          <li>Ingredient 2</li>
-          <li>Ingredient 3</li>
+          <li>1 teaspoon garam masala</li>
+          <li>1 teaspoon salt</li>
+          <li>1 teaspoon corriander</li>
+          <li>1/2 cumin powder</li> 
+          <li>1/4 turmeric</li> 
         </ul>
       </div>
 
       <div>
         <h2 className="text-xl font-semibold text-gray-800 mb-2">Instructions</h2>
         <ol className="list-decimal list-inside text-gray-600 space-y-2">
-          <li>Step 1: Do something.</li>
-          <li>Step 2: Do something else.</li>
-          <li>Step 3: Finish up.</li>
+          <li>Step 1: Add 1tablespoon lemon juice</li>
+          <li>Step 2: Add 1tablespoon oil</li>
+          <li>Step 3: Add ginger garlic paste</li>
+          <li>Add half cup greek yogurt</li>
+          <li>Add all spices</li>
         </ol>
       </div>
     </div>
