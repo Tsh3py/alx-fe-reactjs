@@ -26,26 +26,24 @@ function RecipeDetail() {
       <p className="text-gray-700 mb-6">{recipe.summary}</p>
 
       <div className="mb-6">
-        <h2 className="text-xl font-semibold text-gray-800 mb-2">Ingredients</h2>
-        <ul className="list-disc list-inside text-gray-600 space-y-1">
-          <li>1 teaspoon garam masala</li>
-          <li>1 teaspoon salt</li>
-          <li>1 teaspoon corriander</li>
-          <li>1/2 cumin powder</li> 
-          <li>1/4 turmeric</li> 
-        </ul>
-      </div>
+  <h2 className="text-xl font-semibold text-gray-800 mb-2">Ingredients</h2>
+  <ul className="list-disc list-inside text-gray-600 space-y-1">
+    {recipe.ingredients.map((item, index) => (
+      <li key={index}>{item}</li>
+    ))}
+  </ul>
+</div>
+
 
       <div>
-        <h2 className="text-xl font-semibold text-gray-800 mb-2">Instructions</h2>
-        <ol className="list-decimal list-inside text-gray-600 space-y-2">
-          <li>Step 1: Add 1tablespoon lemon juice</li>
-          <li>Step 2: Add 1tablespoon oil</li>
-          <li>Step 3: Add ginger garlic paste</li>
-          <li>Add half cup greek yogurt</li>
-          <li>Add all spices</li>
-        </ol>
-      </div>
+  <h2 className="text-xl font-semibold text-gray-800 mb-2">Instructions</h2>
+  <ol className="list-decimal list-inside text-gray-600 space-y-2">
+    {recipe.instructions.map((step, index) => (
+      <li key={index}>{step}</li>
+    ))}
+  </ol>
+</div>
+
     </div>
   );
 }
